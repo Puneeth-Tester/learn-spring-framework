@@ -11,17 +11,16 @@ public class MessageSender {
 
     private MessageService smsService;
 
-    public MessageSender(@Qualifier("emailService") MessageService messageService) {
+    @Autowired
+    public void setMessageService(@Qualifier("emailService") MessageService messageService) {
         this.messageService = messageService;
-        System.out.println("Constructor based DI");
+        System.out.println("Setter Based DI - Email Service");
     }
 
     @Autowired
-    public MessageSender(@Qualifier("emailService") MessageService messageService,
-                         @Qualifier("smsService") MessageService smsService) {
-        this.messageService = messageService;
+    public void setSmsService(@Qualifier("smsService") MessageService smsService) {
         this.smsService = smsService;
-        System.out.println("Two Parameter Constructor based DI");
+        System.out.println("Setter Based DI - SMS Service");
     }
 
     public void sendMessage(String message){
