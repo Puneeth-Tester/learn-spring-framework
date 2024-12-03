@@ -41,6 +41,7 @@ class AppConfig{
         return new Address();
     }
 
+    // @Bean(name = {"studentBean", "studentDemo"})
     @Bean(name = "studentBean", initMethod = "init", destroyMethod = "destroy")
     public Student student(){
         return new Student(address());
