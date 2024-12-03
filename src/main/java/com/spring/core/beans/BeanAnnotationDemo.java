@@ -48,11 +48,12 @@ class AppConfig{
     }
 }
 
-@ComponentScan(basePackages = "com.spring.core.beans")
+//@ComponentScan(basePackages = "com.spring.core.beans")
 public class BeanAnnotationDemo {
 
     public static void main(String[] args) {
-        try(var applicationContext = new AnnotationConfigApplicationContext(BeanAnnotationDemo.class)){
+        //try(var applicationContext = new AnnotationConfigApplicationContext(BeanAnnotationDemo.class)){
+        try(var applicationContext = new AnnotationConfigApplicationContext(AppConfig.class)){
             // Student student = applicationContext.getBean(Student.class);
             Student student = (Student) applicationContext.getBean("studentBean");
             String[] beans = applicationContext.getBeanDefinitionNames();
